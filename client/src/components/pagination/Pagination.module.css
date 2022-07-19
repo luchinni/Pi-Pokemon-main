@@ -1,0 +1,23 @@
+.pag {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:white;
+    flex-wrap: wrap;
+    width: auto;
+    padding: 5px;
+}
+
+span {
+    margin: 5px;
+    padding: 10px;
+    color: orange;
+    cursor: default;
+}
+
+span:hover {
+    background-color: orange;
+    color: white;
+    border-radius: 100px;
+} 

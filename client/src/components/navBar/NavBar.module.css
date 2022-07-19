@@ -1,0 +1,23 @@
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: auto;
+    height: 100px;
+    background-color: rgb(74, 72, 209);
+    box-shadow: 0 100px 100px 0 rgba(0, 0, 0, 0.2);
+    /* transition: 0.3s; */
+    /* z-index: 1; */
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    color: black;
+    background-color: aliceblue;
+}
+
+.img {
+    display: flex;
+    justify-content: flex-start;
+    width: 300px;
+}

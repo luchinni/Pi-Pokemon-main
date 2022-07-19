@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+
+.background {
+    background-image: url(../../assets/lp.png);
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.pokemonLogo {
+    width: 500px;
+    margin-left: 150px;
+}
+
+.btn {
+    background-color: rgb(255, 239, 138);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 50px;
+    border-style: none;
+    margin-right: 150px;
+}
+
+.msg {
+    font-family: 'Bungee', cursive;
+    font-size: x-large;
+    color: black;
+}
+
+/* .msg:hover {
+    text-shadow: 3px 3px 10px rgb(88, 79, 62); 
+    color: rgb(74, 72, 209);
+} 
+  */
+.btn:hover{
+    box-shadow: rgb(255, 170, 0) 10px 10px;
+    transition: 0.3s;
+    
+}
+
+/* box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+ */
+
+
+/* .color1 {color: #ffea48;}
+.color2 {color: #fffb68;}
+.color3 {color: #091aae;}
+.color4 {color: #0778ff;}
+.color5 {color: #d5f2f7;} */
