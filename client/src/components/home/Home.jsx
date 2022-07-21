@@ -48,12 +48,14 @@ export default function Home(){
         e.preventDefault()
         dispatch(filterByType(e.target.value))
        setCurrentPage(1)
+       history.push("/home")
     }
 
     const handleCreation = (e) => {
         e.preventDefault()
         dispatch(filterByCreation(e.target.value))
         setCurrentPage(1)
+        history.push("/home")
     }
 
     const handleSortByName = (e) => {
@@ -114,17 +116,15 @@ export default function Home(){
                             </select>
                         </div>
                         <div>
-                            <select  className={styles.orderName} onChange={handleSortByName}>
-                                <option value="" selected disabled hidden>Order by name</option>
-                                <option value="default">Default</option>
+                            <select  className={styles.orderName} onChange={handleSortByName} value="orderByName">
+                                <option value="orderByName" disabled>Order by name</option>
                                 <option value="a-z">A-Z</option>
                                 <option value="z-a">Z-A</option>
                             </select>
                         </div>
                         <div>
-                            <select  className={styles.orderAttack} onChange={handleSortByAttack}>
-                                <option value="" selected disabled hidden>Order by attack</option>
-                                <option value="default">Default</option>
+                            <select  className={styles.orderAttack} onChange={handleSortByAttack} value="orderByAttack">
+                                <option value="orderByAttack" disabled >Order by attack</option>
                                 <option value="min">Minimum attack</option>
                                 <option value="max">Maximum attack</option>
                             </select>

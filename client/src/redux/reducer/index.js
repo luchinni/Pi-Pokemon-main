@@ -4,7 +4,7 @@ const initialState = {
     pokemon: {},
     types: [],
     filtered: [],
-    filterActive:{types:"all", createdIn:"all", sortName:"", sortAttack:""} 
+    filterActive:{types:"all", createdIn:"all", sort: ""}
 }
 
 
@@ -15,7 +15,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 pokemons: action.payload,
                 backupPokemons: action.payload,
-                filtered: action.payload
+                filtered: action.payload,
+                filterActive: {types: "all", createdIn: "all", sort: ""}
             }
         case "GET_TYPES":
             return {
@@ -39,140 +40,101 @@ const reducer = (state = initialState, action) => {
                 pokemons: action.payload
             }
         case "SORT_BY_NAME": {
-            let allPokemons = state.filtered
+            let pokeName = state.pokemons
             let filterActiveLocal = state.filterActive
-            filterActiveLocal.sortName = action.payload
             let responseName = []
             
             if(action.payload === "a-z"){
-                responseName = allPokemons.sort((a, b) => {
+                responseName = pokeName.sort((a, b) => {
                     if(a.name.toLowerCase() < b.name.toLowerCase()) return -1
                     if(a.name.toLowerCase() > b.name.toLowerCase()) return 1
                     return 0
                 })
             } else if(action.payload === "z-a"){
-                responseName = allPokemons.sort((a, b) => {
+                responseName = pokeName.sort((a, b) => {
                     if(a.name.toLowerCase() > b.name.toLowerCase()) return -1
                     if(a.name.toLowerCase() < b.name.toLowerCase()) return 1
                     return 0
                 })
             
                 
-            } return {
+            } 
+
+            filterActiveLocal.sort = action.payload
+            return {
                ...state,
                pokemons: responseName,
-               filterActive: filterActiveLocal.sortName = action.payload
+               filterActive: filterActiveLocal
            }  
         }
         case "SORT_BY_ATTACK":{
-            const allPokemons = state.filtered
+            let pokeAttack = state.pokemons
+            let filterActiveLocal = state.filterActive
             let responseAttack = []
             
             if(action.payload === "min"){
-                responseAttack = allPokemons.sort((a, b) => {
+                responseAttack = pokeAttack.sort((a, b) => {
                 return a.attack - b.attack
                 })
             } else if(action.payload === "max"){
-                responseAttack = allPokemons.sort((a, b) => {
+                responseAttack = pokeAttack.sort((a, b) => {
                     return b.attack - a.attack
                 })
-            } return {
+            } 
+            filterActiveLocal.sort = action.payload
+            
+            
+            return {
                 ...state,
                 pokemons: responseAttack,
-                
+                filterActive: filterActiveLocal  
             } 
         }
-        case "FILTER_BY_TYPE": {
-            const pokes = state.backupPokemons.map(e=>e)
+        case "FILTER_BY_TYPE": 
+            let pokeTypes = state.filtered
             let filterActiveLocal = state.filterActive
-            filterActiveLocal.types = action.payload
-            const filterType = []
-            let responseType = []
-            console.log("action.payload",action.payload)
-            console.log("filterActiveLocal",filterActiveLocal)
+            let filteredTypes = action.payload === "all" ?
+                pokeTypes : pokeTypes.filter((p) => p.types.includes(action.payload))
 
-            pokes.forEach(p => {
-                if(p.types.includes(action.payload)){
-                    filterType.push(p)
-                }
-            })
-            console.log("filtertype",filterType)
-            if(action.payload === "all"){
-                console.log("all")
-                responseType = pokes
-            } 
-            console.log("responseType1",filterType)
-             if(filterActiveLocal.createdIn === "created"){
+            if(filterActiveLocal.createdIn === "created"){
                 console.log("created")
-                responseType = filterType.filter(p => p.id.length === 36)
+                filteredTypes = filteredTypes.filter(p => p.id.length === 36)
             } else if(filterActiveLocal.createdIn === "existent"){
                 console.log("existent")
-                responseType = filterType.filter(p => typeof p.id === "number")
-            }  
-
-            /* if(filterActiveLocal.createdIn === "created"){
-                console.log("created")
-                responseType = filterType.filter(e => e.id.length === 36)
-            } else if(filterActiveLocal.createdIn === "existent"){
-                console.log("existent")
-                filterType.map(e => console.log(e.id.length))
-                responseType = filterType.filter(e => e.id.length < 36)
-            } */
-            console.log("responseType2",responseType)
-
- 
-            console.log("filterActiveLocal",filterActiveLocal)
-
+                filteredTypes = filteredTypes.filter(p => typeof p.id === "number")
+            }
+            
             return {
                 ...state,
-                filterActive: filterActiveLocal,
-                pokemons: responseType,
-                filtered: responseType
+                pokemons: filteredTypes,
+                filterActive: {...state.filterActive, types : action.payload}
             }
-        }
+
+            
         case "FILTER_BY_CREATION": {
-            const allPokes = state.backupPokemons.map(e=>e)
+            let pokeCreated = state.filtered
             let filterActiveLocal = state.filterActive
-            filterActiveLocal.createdIn = action.payload
-            const filterCreated = []
-            const filterExistent = []
-            let responseCreation = []
-            console.log("action.payload", action.payload)
-            allPokes.forEach(p => {
-                if(typeof p.id === "number"){
-                    filterExistent.push(p)
-                } else {
-                    filterCreated.push(p)
-                }
-             })
+            let filterCreated = action.payload === "existent" ?
+            pokeCreated.filter((p) => typeof p.id === "number") :
+            pokeCreated.filter((p) => typeof p.id !== "number")
+            
 
-            console.log("filterCreated", filterCreated)
-            console.log("filterExistent", filterExistent)
-            if(action.payload === "created"){
-                responseCreation = filterCreated
-            } else if(action.payload === "existent"){
-                responseCreation  = filterExistent
-            } else if(action.payload === "all"){
-                responseCreation = state.backupPokemons
-            } 
-            console.log("responseCreation",responseCreation)
             if(filterActiveLocal.types !== "all"){
-                responseCreation = responseCreation.filter(e=> e.types.includes(filterActiveLocal.types))
+                filterCreated = filterCreated.filter(e=> e.types.includes(filterActiveLocal.types))
             }
-            console.log("responseCreation2",responseCreation)
+
             return {
                 ...state,
-                filterActive: filterActiveLocal,
-                pokemons: responseCreation,
-                filtered: responseCreation
-            } 
+                pokemons: filterCreated,
+                filterActive: {...state.filterActive, createdIn : action.payload}
+            }
         }
         
         case "RESET_POKEMONS": 
             return {
                 ...state,
                 pokemons: state.backupPokemons,
-                filterActive: {types:"all", createdIn:"all"}
+                filterActive: {types:"all", createdIn:"all", sort:""}
             }
         default: return state
     }

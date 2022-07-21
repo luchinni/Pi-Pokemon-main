@@ -6,7 +6,7 @@ import Nav from "../nav/Nav.jsx";
 import imgPokeCreate from "../../assets/pokeCreateDefinitivo.png";
 import styles from "./Create.module.css";
 
-//todo esto adentro de un use effect para deshabilitar el boton create
+
 function form(input){
     let error = {};
     if(input.name && !/^[A-z]+$/.test(input.name)){ 
@@ -110,12 +110,16 @@ export default function Create(){
         e.preventDefault();
         console.log("error", error)
         console.log("input", input)
-        if(!error.name && !error.hp && input.hp.length >= 1 
+        if(input.types.length > 2 || input.types.length === 0){
+            return alert("You must select 1 type minimum and 2 types maximum")
+        }
+        else if(!error.name && !error.hp && input.hp.length >= 1 
             && !error.attack && input.attack.length >= 1
             && !error.defense && input.defense.length >= 1
             && !error.speed && input.speed.length >= 1
             && !error.height && input.height.length >= 1
-            && !error.weight && input.weight.length >= 1){
+            && !error.weight && input.weight.length >= 1
+            ){
             alert("Your pokemon has been created successfully")
             dispatch(createPokemon(input))
             history.push("/home")
@@ -126,8 +130,11 @@ export default function Create(){
    
     const handleSelect = (e) => {
         e.preventDefault()
-        if(input.types.length > 1){
-            alert("You must select 1 type minimum and 2 types maximum")
+        console.log("input", input.types)
+        if(input.types.includes(e.target.value)){
+            return alert ("You already selected that type")
+        } else if(input.types.length > 1){
+            return alert("You must select 1 type minimum and 2 types maximum")
         }else{
             setInput({
                 ...input,
@@ -145,9 +152,6 @@ export default function Create(){
         })
     }
 
-    console.log(input.types)
-
-  console.log("types",types)
     return (
         <div>
             <div className={styles.navCreate}>

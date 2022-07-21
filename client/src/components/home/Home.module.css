@@ -35,7 +35,11 @@
     box-shadow: 0 4px 2px 0 rgba(82, 82, 82, 0.2);
 }
 
-
+/* select.orderName option:checked,
+select.orderAttack option:checked {
+    background-color: orange;
+    color: white;
+} */
 .containerPag {
     display: flex;
     align-items: center;

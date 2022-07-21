@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { resetPokemons } from "../../redux/actions";
+import { getPokemons } from "../../redux/actions";
 import SearchBar from "../searchBar/SearchBar";
 import pokemonLogo from "../../assets/pokemon_logo.png";
 import styles from "./NavBarHome.module.css";
@@ -13,7 +13,7 @@ export default function NavBarHome(){
 
     const handleClick = (e) => {
         e.preventDefault()
-        dispatch(resetPokemons())
+        dispatch(getPokemons())
         history.push("/home")
     }
     
