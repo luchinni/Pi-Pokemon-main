@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 50px;
+    background-color: aliceblue;
+    border-radius: 35px;
+    border-style: none;
+    gap: 10px;
+}
+
+.btnSearch {
+    border-radius: 15px;
+    border-style: solid;
+    border-color: aliceblue;
+    background-color: orange;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    font-size: medium;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.btnSearch:hover{
+    background-color: aliceblue;
+    border-color: orange;
+    border-style: solid;
+    color: orange;
+    transition: 0.3s;
+}
+
+.inputSearch {
+    border-style: none;
+    background-color: aliceblue;
+    outline: none;
+    font-size: medium;
+}

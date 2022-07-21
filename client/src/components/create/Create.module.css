@@ -1,19 +1,169 @@
-.cardContainer {
+/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+ */
+
+.backgroundCreate {
+    background-color: rgba(255, 200, 0, 0.933);
+    background-size: cover;
+    min-height: 86.5vh;
     display: flex;
     align-items: center;
     justify-content: center;
+      
 }
 
-form {
-    width: 800px;
-    height: 600px;
-    background-color: aliceblue;
+.createContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(255, 158, 3);
+    height: 570px;
+    width: 900px;
     border-radius: 10px;
-    margin-top: 55px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-input {
+.imgPokeCreate {
+    width: 400px;
+    height: 250px;
+    margin-bottom: 200px;
+    
+}
+
+.formContainer {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+} 
+
+.form {
+    width: 450px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -80px;
+}
+
+.nameInput,
+.hpInput,
+.attackInput,
+.defenseInput,
+.speedInput,
+.heightInput,
+.weightInput {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    margin: 10px;
+}
+
+label {
+    /* font-family: 'Work Sans', sans-serif; */
+    margin-right: 10px;
+    align-self: center;
+}
+
+.input {
+    display: flex;
+    align-self: center;
+    width: 230px;
+    height: 35px;
+    border-style: none;
+    outline: none;
+    background-color: rgba(255, 245, 179, 0.933);
+    box-shadow: 0 4px 2px 0 rgba(82, 82, 82, 0.2);
+    margin-right: 40px;
+}
+::placeholder {
+   color: rgb(78, 78, 78);     
+}
+
+.navCreate {
+    box-shadow: 0 4px 4px 0 rgba(82, 82, 82, 0.2);
+    /* z-index: 1; */
+}
+
+/* .imgBtnContainer {
+    display: flex;
+    align-items: flex-end;
+} */
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: -150px;
+}
+
+.btnCreate {
+    margin: 25px;
+    color: black;
+    background-color: rgba(255, 245, 179, 0.933);
+    /* font-family: 'Work Sans', sans-serif; */
+    font-size: larger;
+    border-radius: 35px;
+    border-style: none;
+    width: 200px;
+    height: 40px;
+    box-shadow: 0 4px 2px 0 rgba(82, 82, 82, 0.2);
+}
+
+
+.btnCreate:hover {
+    background-color: rgb(108, 108, 231);
+    color: white;
+    transition: 0.3s;
+}
+
+.typeContainer {
+    margin-left: 63px;
+    margin-top: 10px;
+}
+
+.type {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.typeAndButton {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 245, 179, 0.933);
+    width: auto;
+    height: 30px;
+    padding: 5px;
+    margin-top: 10px;
+    gap: 5px;
+    box-shadow: 0 4px 2px 0 rgba(82, 82, 82, 0.2);
+}
+
+.btnDeleteType {
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    border-style: none;
+    background-color: rgb(255, 158, 3);
+    color: white;
+}
+
+.btnDeleteType:hover {
+    background-color: white;
+    color: rgb(255, 158, 3);
+}
+
+.selectCreate {
+    width: 235px;
+    height: 35px;
+    background-color: rgba(255, 245, 179, 0.933);
+    border-style: none;
+    outline: none;
+    color: rgb(78, 78, 78);
+    box-shadow: 0 4px 2px 0 rgba(82, 82, 82, 0.2);
+}
+
+.errorInput {/* 
+    margin-top: -15px; */
+    margin-left: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: smaller;
 }

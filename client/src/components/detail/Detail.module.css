@@ -1,26 +1,120 @@
-.background {
-    background-color: blue;
-    background-size: cover;
-    height: 100vh;
+/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+ */
+.backgroundDetail {
+    background-color: rgba(255, 200, 0, 0.933);
+    width: auto;
+    min-height: 86.5vh;
     display: flex;
-    justify-content: center;
-
+    align-items: center;
+    justify-content: center;  
 }
-.container {
+
+.containerDetail{
+    display: flex;
+    align-content: center;
     width: 1000px;
-    height: 600px;
-    background-color: aliceblue;
+    height: 500px;
+    background-color: orange;
     border-radius: 10px;
-    margin-top: 55px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
+} 
+
+.containerImg {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border-radius: 10px 0 0 10px;
+    width: 500px;
 }
 
-img {
-    width: 50%;
-    height: 50%;
+.containerData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0 10px 10px 0;
+    width: 500px;
+    row-gap: 20px;
+
+} 
+
+.pokeImage {
+    width: 400px;
 }
 
-/* .data {
+.pokeId {
+    font-size: larger;
+    color: white;
+    margin-top: -50px;
+}
 
-} */
+.namePokeDetail {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    /* font-family: 'Nunito', sans-serif; */
+    font-size: 70px;
+}
+
+
+.navDetail {
+    box-shadow: 0 20px 20px 0 rgba(82, 82, 82, 0.2);
+}
+
+.detailTypes {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: orange;
+    border-radius: 5px;
+    gap: 20px;
+    width: 300px;
+}
+
+
+
+.detailType {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.type {
+    margin: 10px;
+}
+
+.firstRow,
+.secondRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.hp,
+.attack,
+.defense,
+.speed,
+.height,
+.weight {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+h4,
+h3 {
+    font-size: larger;
+    font-weight: light;
+    color: orange;
+    margin: 2px;
+}

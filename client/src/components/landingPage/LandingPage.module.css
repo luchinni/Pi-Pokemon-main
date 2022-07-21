@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
-
+ */
 
 .background {
     background-image: url(../../assets/lp.png);
@@ -14,7 +14,7 @@
 
 .pokemonLogo {
     width: 500px;
-    margin-left: 150px;
+    margin-left: 200px;
 }
 
 .btn {
@@ -25,11 +25,12 @@
     width: 350px;
     height: 50px;
     border-style: none;
-    margin-right: 150px;
+    margin-right: 200px;
 }
 
 .msg {
-    font-family: 'Bungee', cursive;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Bungee', cursive; */
     font-size: x-large;
     color: black;
 }

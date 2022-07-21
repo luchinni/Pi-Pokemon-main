@@ -3,12 +3,12 @@ import { useDispatch, useSelector} from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { getPokemons, getTypes, filterByCreation, filterByType, sortByName, sortByAttack } from "../../redux/actions";
 import Card from "../card/Card";
-import NavBar from "../navBar/NavBar";
+import NavBarHome from "../navBarHome/NavBarHome";
 import Pagination from "../pagination/Pagination";
-import defaultImage from "../../assets/pokeball.png"
-import pokeballLoading from "../../assets/pokeball.png"
-import sadPika from "../../assets/sadpikaSearch.png"
-import styles from "./Home.module.css"
+import defaultImage from "../../assets/defaultPoke.png";
+import pokeballLoading from "../../assets/pokeball.png";
+import sadPika from "../../assets/sadpikaSearch.png";
+import styles from "./Home.module.css";
 
 
 
@@ -71,17 +71,16 @@ export default function Home(){
     }
 
     return (
-        <div>
+        <div   className={styles.backgroundHome}>
             <div className={styles.nav}>
-                <NavBar/>
+                <NavBarHome/>
             </div>
-            <div  className={styles.background}>
+            <div>
             <div>{backupPokemons && backupPokemons.length > 0 ? 
                 <div>
-                {allPokemons && allPokemons.length > 0 ?
-                    <div>
+                    <div className={styles.filterContainer}>
                         <div>
-                            <select onChange={handleTypes}>
+                            <select className={styles.filterTypes} onChange={handleTypes}>
                                 <option value="" selected disabled hidden>Filter by type</option>
                                 <option value="all">All</option>
                                 <option value="normal">Normal</option>
@@ -107,7 +106,7 @@ export default function Home(){
                             </select>
                         </div>
                         <div>
-                            <select onChange={handleCreation}>
+                            <select className={styles.filterCreation} onChange={handleCreation}>
                                 <option value="" selected disabled hidden>Filter by origin</option>
                                 <option value="all">All</option>
                                 <option value="created">Created</option>
@@ -115,19 +114,24 @@ export default function Home(){
                             </select>
                         </div>
                         <div>
-                            <select defaultValue={"Order by name"} onChange={handleSortByName}>
+                            <select  className={styles.orderName} onChange={handleSortByName}>
                                 <option value="" selected disabled hidden>Order by name</option>
+                                <option value="default">Default</option>
                                 <option value="a-z">A-Z</option>
                                 <option value="z-a">Z-A</option>
                             </select>
                         </div>
                         <div>
-                            <select defaultValue={"Order by attack"} onChange={handleSortByAttack}>
+                            <select  className={styles.orderAttack} onChange={handleSortByAttack}>
                                 <option value="" selected disabled hidden>Order by attack</option>
+                                <option value="default">Default</option>
                                 <option value="min">Minimum attack</option>
                                 <option value="max">Maximum attack</option>
                             </select>
                         </div>
+                        </div>
+                        {allPokemons && allPokemons.length > 0 ?
+                            <div>
                         <div className={styles.containerPag}>
                             <div className={styles.pagContainer}>
                                 <button className={firstPokemonPerPage === 0 ? styles.disabledPrev : styles.prev} 
@@ -159,11 +163,11 @@ export default function Home(){
                         </div>
                     </div>
                     :<div className={styles.sadPika}>
-                        <img src={sadPika} alt="sadPika"/>
+                        <img src={sadPika} alt="Pokemon not found"/>
                     </div>}
                     </div> 
                     : <div className={styles.pokeballLoading}>
-                    <img src={pokeballLoading} className={styles.imgLoading}/>
+                    <img src={pokeballLoading} className={styles.imgLoading} alt="loading"/>
                     </div>
                     } 
             </div> 

@@ -1,15 +1,16 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import SearchBar from "../searchBar/SearchBar";
-import pokemonLogo from "../../assets/pokemon_logo.png"
-import styles from "./NavBar.module.css"
+import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { resetPokemons } from "../../redux/actions";
+import SearchBar from "../searchBar/SearchBar";
+import pokemonLogo from "../../assets/pokemon_logo.png";
+import styles from "./NavBarHome.module.css";
 
-export default function NavBar(){
+export default function NavBarHome(){
 
     const history = useHistory()
     const dispatch = useDispatch()
+
     const handleClick = (e) => {
         e.preventDefault()
         dispatch(resetPokemons())
@@ -18,16 +19,16 @@ export default function NavBar(){
     
     return(
         <div className={styles.nav}>
-                <div className={styles.img}>
-                    <img onClick={handleClick} src={pokemonLogo} alt="pokemonLogo"/>
+            <div>
+                <Link to="/create" style={{textDecoration: "none"}}>
+                    <button className={styles.btn}>Create Pokémon</button>
+                </Link>
+            </div>
+                <div>
+                    <img className={styles.logoNav} onClick={handleClick} src={pokemonLogo} alt="pokemonLogo"/>
                 </div>
             <div>
                 <SearchBar/>
-            </div>
-            <div className={styles.create}>
-                <Link to="/create" style={{textDecoration: "none"}}>
-                    <button>Create Pokémon</button>
-                </Link>
             </div>
         </div>
     )

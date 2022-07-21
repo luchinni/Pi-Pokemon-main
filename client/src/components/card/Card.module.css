@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+ */
 
 .card {
     width: 300px;
     height: 380px;
-    background-color: aliceblue;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -13,51 +13,94 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card:hover {
-    background-color: rgb(51, 51, 186);
-    cursor: default;
-}
-
 .imgContainer {
+    background-color: aliceblue;
+    border-radius: 10px 10px 0 0;
+    height: 220px;
     display: flex;
     justify-content: center;
 }
 
-img {
-    width: 70%;
-    height: 70%;
+.cardImg {
+    width: 150px;
+    height: 150px;
     align-self: center;
 }
 
-h2 {
-    font-family: 'Nunito', sans-serif;
-    align-self: center;
-    color: darkgoldenrod;
+.nameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(108, 108, 231);;
 }
 
-h5 {
-    font-family: 'Oswald', sans-serif;
+.name {
+    /* font-family: 'Nunito', sans-serif; */
+    color: aliceblue;
+    font-size: xx-large;
+    margin: 5px;
 }
 
-ul{
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: repeat(3, auto);
-    gap: 0.4rem;
-    width: 60%;
-    height: 20px;
-    padding: 20px;
-    align-self: center;
+.dataContainer {
+    background-color: rgb(108, 108, 231);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
-li {
+.attackContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: aliceblue; */
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+}
+
+.attack,
+.attackValue {
+    /* font-family: 'Work Sans', sans-serif; */
+    font-size: larger;
+    color: aliceblue;
+    margin: 2px;
+
+}
+
+
+.typesContainer > ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: aliceblue; */
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+}
+
+.eachTypeCard {
     list-style: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(248, 183, 77);
-    padding: 0.5rem 0.5rem;
+    /* font-family: 'Work Sans', sans-serif; */
+    color: aliceblue;
     width: auto;
     height: auto;
     text-align: center;
-    border-radius: 15px;   
+    font-size: larger;
+    font-weight: bolder;
 }
 
+
+
+.card:hover {
+    cursor: default;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+    z-index: 3;
+
+}

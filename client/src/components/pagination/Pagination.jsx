@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Pagination.module.css"
+import styles from "./Pagination.module.css";
 
 
 export default function Pagination({pokemonsPerPage, allPokemons, pagination}) {
@@ -13,7 +13,7 @@ export default function Pagination({pokemonsPerPage, allPokemons, pagination}) {
         <div className={styles.pag}>
             {pageNumbers && pageNumbers.map((n) => (
                         <div key={n}>
-                        <span onClick={() => pagination(n) }>{n}</span>
+                        <span className={styles.number} onClick={() => pagination(n) }>{n}</span>
                         </div>
                     )
                 )
