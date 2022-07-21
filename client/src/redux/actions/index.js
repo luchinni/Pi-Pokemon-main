@@ -1,12 +1,5 @@
 import axios from "axios"
 
-/* export function getPokemons(){
-    return async function(dispatch){
-        let pokemons = await axios.get("http://localhost:3001/pokemons")
-        return dispatch({type:"GET_POKEMONS", payload: pokemons.data})
-    }
-} */
-
 export const getPokemons = () => {
     return async function(dispatch){
         let pokemons = await axios.get("http://localhost:3001/pokemons")
@@ -22,18 +15,6 @@ export const getTypes = () => {
     }
 }
 
-/* export const getTypes = () => {
-    return {
-        let types = axios.get("http://localhost:3001/types")
-        .then(dispatch({type: "GET_TYPES", payload: types}))
-    }
-} */
-
-/* export const getById = (id) => dispatch => {
-    return fetch(`http://localhost:3001/pokemons/${id}`)
-    .then(response => response.json())
-    .then(pokemon => dispatch({type: "GET_BY_ID", payload: pokemon}))
-} */
 
 export const getById = (id) => {
     return async function(dispatch){

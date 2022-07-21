@@ -34,7 +34,6 @@ const reducer = (state = initialState, action) => {
                 pokemons: [...state.pokemons, action.payload]
             }
         case "SEARCH_BY_NAME":
-            /* let found = state.backupPokemons.filter(p => p.name.toLowerCase() === action.payload.toLowerCase()) */
             return {
                 ...state,
                 pokemons: action.payload
