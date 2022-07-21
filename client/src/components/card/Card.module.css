@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(108, 108, 231);;
+    background-color: orange
 }
 
 .name {
@@ -65,9 +65,10 @@
 .attack,
 .attackValue {
     /* font-family: 'Work Sans', sans-serif; */
-    font-size: larger;
+    font-size: x-large;
     color: aliceblue;
     margin: 2px;
+    text-shadow: 2px 2px 5px rgb(141, 141, 141);
 
 }
 
@@ -86,12 +87,17 @@
 .eachTypeCard {
     list-style: none;
     /* font-family: 'Work Sans', sans-serif; */
-    color: aliceblue;
+    color: rgb(108, 108, 231);
     width: auto;
     height: auto;
     text-align: center;
     font-size: larger;
     font-weight: bolder;
+    text-shadow: px 1px 5px rgb(141, 141, 141);
+    background-color: aliceblue;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
 }
 
 
