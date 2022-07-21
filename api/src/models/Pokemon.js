@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
     },
     id: {
       type: DataTypes.UUID, 
-      primaryKey: true,
+      primaryKey: true, 
       allowNull: false
     },
     hp: {

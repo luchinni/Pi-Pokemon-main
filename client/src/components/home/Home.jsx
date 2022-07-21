@@ -108,26 +108,20 @@ export default function Home(){
                             </select>
                         </div>
                         <div>
-                            <select className={styles.filterCreation} onChange={handleCreation}>
+                            <select className={styles.filterCreation} onChange={handleCreation} value="">
                                 <option value="" selected disabled hidden>Filter by origin</option>
                                 <option value="all">All</option>
                                 <option value="created">Created</option>
                                 <option value="existent">Existent</option>
                             </select>
                         </div>
-                        <div>
-                            <select  className={styles.orderName} onChange={handleSortByName} value="orderByName">
-                                <option value="orderByName" disabled>Order by name</option>
-                                <option value="a-z">A-Z</option>
-                                <option value="z-a">Z-A</option>
-                            </select>
+                        <div className={styles.orderName}>
+                                <button value="a-z" className={styles.btnAz} onClick={handleSortByName} >A-Z</button>
+                                <button value="z-a" className={styles.btnZa} onClick={handleSortByName}>Z-A</button>
                         </div>
-                        <div>
-                            <select  className={styles.orderAttack} onChange={handleSortByAttack} value="orderByAttack">
-                                <option value="orderByAttack" disabled >Order by attack</option>
-                                <option value="min">Minimum attack</option>
-                                <option value="max">Maximum attack</option>
-                            </select>
+                        <div className={styles.orderAttack}>
+                                <button className={styles.btnMinAttack} value="min" onClick={handleSortByAttack} >Minimum attack</button>
+                                <button className={styles.btnMaxAttack} value="max" onClick={handleSortByAttack} >Maximum attack</button>
                         </div>
                         </div>
                         {allPokemons && allPokemons.length > 0 ?

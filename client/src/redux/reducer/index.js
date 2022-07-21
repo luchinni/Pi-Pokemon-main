@@ -114,14 +114,18 @@ const reducer = (state = initialState, action) => {
         case "FILTER_BY_CREATION": {
             let pokeCreated = state.filtered
             let filterActiveLocal = state.filterActive
-            let filterCreated = action.payload === "existent" ?
-            pokeCreated.filter((p) => typeof p.id === "number") :
-            pokeCreated.filter((p) => typeof p.id !== "number")
-            
+            let filterCreated 
+            if(action.payload && action.payload !== "all"){
+                filterCreated = action.payload === "existent" ?
+                pokeCreated.filter((p) => typeof p.id === "number") :
+                pokeCreated.filter((p) => typeof p.id !== "number") 
+            } else {
+                filterCreated = pokeCreated
+            }
 
             if(filterActiveLocal.types !== "all"){
                 filterCreated = filterCreated.filter(e=> e.types.includes(filterActiveLocal.types))
-            }
+            } 
 
             return {
                 ...state,

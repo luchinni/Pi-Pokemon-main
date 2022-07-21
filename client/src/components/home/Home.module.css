@@ -20,8 +20,6 @@
 }
 
 .filterTypes,
-.orderName,
-.orderAttack,
 .filterCreation {
     width: 235px;
     height: 40px;
@@ -35,11 +33,50 @@
     box-shadow: 0 4px 2px 0 rgba(82, 82, 82, 0.2);
 }
 
-/* select.orderName option:checked,
-select.orderAttack option:checked {
+.orderName,
+.orderAttack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+    height: auto;
+    background-color: white;
+    border-style: none;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    font-size: medium;
+    color: rgb(78, 78, 78);
+    box-shadow: 0 4px 2px 0 rgba(82, 82, 82, 0.2);
+}
+
+.btnMinAttack, 
+.btnMaxAttack,
+.btnAz,
+.btnZa {
     background-color: orange;
+    border-radius: 10px;
+    padding: 5px;
+    border-style: solid;
+    border-color: white;
     color: white;
-} */
+    font-size: medium; 
+}
+
+.btnMinAttack:hover, 
+.btnMaxAttack:hover,
+.btnAz:hover,
+.btnZa:hover {
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    border-style: solid;
+    border-color: orange;
+    color: orange;
+    font-size: medium; 
+}
+
 .containerPag {
     display: flex;
     align-items: center;
